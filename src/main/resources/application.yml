@@ -13,3 +13,4 @@ spring:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect      
   thymeleaf:
     cache: false 
+
