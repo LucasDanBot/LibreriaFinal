@@ -18,7 +18,7 @@ public class Prestamo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto genera este valor 1,2,3.... n
     private Integer id;
-    // La consigna dice String para que sea un generador alfanumerico, pero el profesor dijo que lo hagamos con integer.
+    // La consigna dice String para que sea un generador alfanumerico, pero solicito que lo hagamos con integer.
     
     @Temporal(TemporalType.DATE) // Se debe implemetar porque MySQL tiene muchos tipos de fechas
     private Date fecha;
