@@ -27,6 +27,13 @@ public class Autor {
     
     // CONSTRUCTORES -----------------------------------------------------------
     
+    public Autor() {
+    }
+
+    public Autor(Integer id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
     
     // GETTER Y SETTERS --------------------------------------------------------
     
