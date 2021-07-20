@@ -16,9 +16,8 @@ public class AutorServicio {
     
     public void registrarAutor (String nombre) throws ErrorServicio{
         
-        if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre del Autor esta vacio");
-        }
+        validar(nombre);
+        
         Autor autor = new Autor();
         
         autor.setNombre(nombre);
@@ -27,12 +26,31 @@ public class AutorServicio {
         autorRepositorio.save(autor);
     }
     
-    private void BajaAutor (String nombre) throws ErrorServicio {
+    
+    public void modificarAutor (String nombre, String nombreNuevo) throws ErrorServicio {
         
-        if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre del Autor esta vacio");
+        validar(nombre);
+        
+        Autor autor = autorRepositorio.buscarPorNombre(nombre);
+        
+        if (autor == null) {
+            throw new ErrorServicio("No se encontro ningun Autor con ese nombre");
         }
         
+        if (nombreNuevo == null || nombreNuevo.isEmpty()) {
+            throw new ErrorServicio("El nombre nuevo del Autor esta vacio");
+        }
+        
+        autor.setNombre(nombreNuevo);
+        
+        autorRepositorio.save(autor);
+        
+    }
+    
+    
+    private void BajaAutor (String nombre) throws ErrorServicio {
+        
+        validar(nombre);
         
         Autor autor = autorRepositorio.buscarPorNombre(nombre);
         
@@ -46,11 +64,10 @@ public class AutorServicio {
         
     }
  
+    
     private void AltaAutor(String nombre) throws ErrorServicio {
 
-        if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre del Autor esta vacio");
-        }
+        validar(nombre);
 
         Autor autor = autorRepositorio.buscarPorNombre(nombre);
 
@@ -62,6 +79,14 @@ public class AutorServicio {
 
         autorRepositorio.save(autor);
 
+    }
+    
+    private void validar (String nombre) throws ErrorServicio{
+        
+        if (nombre == null || nombre.isEmpty()) {
+            throw new ErrorServicio("El nombre del Autor esta vacio");
+        }
+        
     }
 
 }
