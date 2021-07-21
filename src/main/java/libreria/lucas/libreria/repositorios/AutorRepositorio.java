@@ -12,7 +12,7 @@ public interface AutorRepositorio extends JpaRepository<Autor, Integer>{
     
     
     
-    @Query("SELECT c FROM autor c WHERE c.nombre = :nombre")
+    @Query("SELECT c FROM Autor c WHERE c.nombre = :nombre")
     public Autor buscarPorNombre (@Param("nombre") String nombre);
     
     
