@@ -20,7 +20,7 @@ public class Foto {
     private String nombre;
     private String mime;
     
-    @Lob @Basic(fetch = FetchType.Lazy)
+    @Lob @Basic(fetch = FetchType.LAZY)
     private byte[] contenido;
 
     
