@@ -29,11 +29,11 @@
 
 
     <!-- Link FontAwesome para uso de logos en el footer (recordar tener tambien la carpeta cargada webfonts ademas del los CSS )-->
-    <link href="css/all.css" rel="stylesheet" />
+    <link href="../static/css/all.css" rel="stylesheet" />
 
 
     <!-- Link con hoja de estilos de CSS (lo ubico aca para poder sobre escribir los estilos de bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../static/css/styles.css" rel="stylesheet" />
 
 
 
@@ -51,7 +51,7 @@
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">BUSCAR LIBRO</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Por Autor</a></li>
+                <li><a class="dropdown-item" href="/libros.html">Por Autor</a></li>
                 <li><a class="dropdown-item" href="#">Por Titulo</a></li>
                 <li><a class="dropdown-item" href="#">Por Editorial</a></li>
                 <li><a class="dropdown-item" href="#">Por ISBN</a></li>
@@ -81,10 +81,11 @@
     <a id="botonLogIn" class="btn btn-primary btn-xl text-uppercase" href="#services">INGRESAR</a>
 </header>
 
+<!-- -------------------------------------------------------------------------- BODY ------------------------------------------------------------------------------------------------------- -->
+
 <body>
 
-<!-- ---------------------------------------------------------------------------- FOOTER ----------------------------------------------------------------------------------------------------- -->
-    <footer class="container text-center text-md-left">
+    <div class="container text-center text-md-left">
 
         <div class="row">
 
@@ -122,22 +123,26 @@
 
         </div>
 
-        </div>
+    </div>
 
-        <hr>
+    <hr>
 
-        <!-- -------------------- Boton de registro -------------------- -->
-        <ul class="list-unstyled list-inline text-center py-2">
-            <li class="list-inline-item">
-                <h5 class="mb-1">Registrate gratis!</h5>
-            </li>
-            <li class="list-inline-item">
-                <a href="#!" class="btn btn-danger btn-rounded">REGISTRARSE!</a>
-            </li>
-        </ul>
+    <!-- -------------------- Boton de registro -------------------- -->
+    <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+            <h5 class="mb-1">Registrate gratis!</h5>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="btn btn-danger btn-rounded">REGISTRARSE!</a>
+        </li>
+    </ul>
+    </div>
 
-        <hr>
+<!-- ---------------------------------------------------------------------------- FOOTER ----------------------------------------------------------------------------------------------------- -->
 
+    <hr>
+
+    <footer>
         <!-- -------------------- Social buttons -------------------- -->
 
         <!-- En el i, el fa-2x modifica el tamano de los iconos -->
@@ -175,6 +180,7 @@
         <!-- -------------------- Copyright -------------------- -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
             <a href="#"> alejandriaIIIac.com</a>
+
     </footer>
 
 </body>
