@@ -41,6 +41,7 @@
 
 </head>
 
+
 <!-- ------------------------------------------------------------------------ NAVBAR ------------------------------------------------------------------------------------------------------- -->
 <nav>
     <ul class="nav nav-tabs">
@@ -51,7 +52,7 @@
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">BUSCAR LIBRO</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/templates/libros.html">Por Autor</a></li>
+                <li><a class="dropdown-item" href="#">Por Autor</a></li>
                 <li><a class="dropdown-item" href="#">Por Titulo</a></li>
                 <li><a class="dropdown-item" href="#">Por Editorial</a></li>
                 <li><a class="dropdown-item" href="#">Por ISBN</a></li>
@@ -80,15 +81,65 @@
 <!-- -------------------------------------------------------------------------- BODY ------------------------------------------------------------------------------------------------------- -->
 
 <body>
-    
-    
+
+    <div class="selectorAutor">
+        <div>
+            <label for="exampleDataList" class="form-label">Eliga el autor:</label>
+        </div>
+        <div class="buscador">
+            <input class="form-control" list="datalistOptions" id="exampleDataList"
+                placeholder="Escriba para buscar...">
+            <datalist id="datalistOptions">
+                <option value="San Francisco">
+                <option value="New York">
+                <option value="Seattle">
+                <option value="Los Angeles">
+                <option value="Chicago">
+            </datalist>
+            <button type="submit" class="btn btn-outline-primary">Buscar</button>
+        </div>
+    </div>
+
+    <table class="table caption-top">
+        <caption>Lista de libros</caption>
+        <thead>
+          <tr>
+            <th scope="col">ISBN</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Editorial</th>
+            <th scope="col">Disponibles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
 
 
-    
-    
 
     <!-- ---------------------------------------------------------------------------- FOOTER ------------------------------------------------------------------------------------------------- -->
-    
+
     <hr>
 
     <footer>
