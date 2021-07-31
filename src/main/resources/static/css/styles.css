@@ -20,7 +20,7 @@
   padding-bottom: 6rem;
   text-align: center;
   color: rgb(5, 5, 5);
-  background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("../static/assets/img/header.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
