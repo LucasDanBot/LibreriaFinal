@@ -47,12 +47,16 @@
         <!-- Seccion Libros -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                aria-expanded="false">BUSCAR LIBRO</a>
+                aria-expanded="false">LIBROS</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Por Autor</a></li>
-                <li><a class="dropdown-item" href="#">Por Titulo</a></li>
-                <li><a class="dropdown-item" href="#">Por Editorial</a></li>
-                <li><a class="dropdown-item" href="#">Por ISBN</a></li>
+                <li><a class="dropdown-item" href="/agregarlibro.html">Agregar Libro</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Buscar por Autor</a></li>
+                <li><a class="dropdown-item" href="#">Buscar por Titulo</a></li>
+                <li><a class="dropdown-item" href="#">Buscar por Editorial</a></li>
+                <li><a class="dropdown-item" href="#">Buscar por ISBN</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
@@ -94,45 +98,16 @@
 
     <div class="selectorAutor">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">ISBN</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+            <input type="text" class="form-control" name="nombre" aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default">
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Titulo</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Año</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Ejemplares</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Prestados</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Autor</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Editorial</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
+        
         <div class="form-row text-center">
-            <!-- -------------------------------------------- -->
-            <!-- Aca configuro el boton para buscar por autor -->
-            <!-- -------------------------------------------- -->
-            <button action="/buscarPorAutor" class="btn btn-outline-primary">Guardar</button>
+            <!-- ------------------------------------------------------------------------- -->
+            <!-- --------------- Aca configuro el boton para guardar Autor --------------- -->
+            <!-- ------------------------------------------------------------------------- -->
+            <button action="/guardarAutor" class="btn btn-outline-primary">Guardar</button>
         </div>
     </div>
 
