@@ -35,10 +35,6 @@
     <!-- Link con hoja de estilos de CSS (lo ubico aca para poder sobre escribir los estilos de bootstrap)-->
     <link href="../static/css/styles.css" rel="stylesheet" />
 
-
-
-
-
 </head>
 
 
@@ -48,6 +44,7 @@
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">INICIO</a>
         </li>
+        <!-- Seccion Libros -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">BUSCAR LIBRO</a>
@@ -61,7 +58,20 @@
                 </li>
                 <li><a class="dropdown-item" href="#">Listar Todos</a></li>
             </ul>
-
+        </li>
+        <!-- Seccion Autores -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">AUTORES</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/libros">Agregar Autor</a></li>
+                <li><a class="dropdown-item" href="#">Buscar Autor</a></li>
+                <li><a class="dropdown-item" href="#">Modificar Autor</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Listar Autores</a></li>
+            </ul>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">SUCURSALES</a>
