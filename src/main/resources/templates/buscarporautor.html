@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Link para el uso de Thimeleaf! (No olvidarse de colocarlo) -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
@@ -42,18 +43,18 @@
 <nav>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+            <a class="nav-link active" aria-current="page" th:href="@{/}">INICIO</a>
         </li>
         <!-- Seccion Libros -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">LIBROS</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/libros/agregarlibro">Agregar Libro</a></li>
+                <li><a class="dropdown-item" th:href="@{/libros/agregarlibro}">Agregar Libro</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Buscar por Autor</a></li>
+                <li><a class="dropdown-item" th:href="@{/libros/buscarporautor}">Buscar por Autor</a></li>
                 <li><a class="dropdown-item" href="#">Buscar por Titulo</a></li>
                 <li><a class="dropdown-item" href="#">Buscar por Editorial</a></li>
                 <li><a class="dropdown-item" href="#">Buscar por ISBN</a></li>
@@ -68,7 +69,7 @@
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">AUTORES</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/libros">Agregar Autor</a></li>
+                <li><a class="dropdown-item" th:href="@{/autores/agregarautor}">Agregar Autor</a></li>
                 <li><a class="dropdown-item" href="#">Buscar Autor</a></li>
                 <li><a class="dropdown-item" href="#">Modificar Autor</a></li>
                 <li>
@@ -196,7 +197,7 @@
 
 
         <!-- -------------------- Copyright -------------------- -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <div class="footer-copyright text-center py-3">© 2021 Copyright:
             <a href="#"> alejandriaIIIac.com</a>
     </footer>
 
