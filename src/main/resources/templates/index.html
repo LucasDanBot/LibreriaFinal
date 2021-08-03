@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 
@@ -29,11 +29,11 @@
 
 
     <!-- Link FontAwesome para uso de logos en el footer (recordar tener tambien la carpeta cargada webfonts ademas del los CSS )-->
-    <link href="../static/css/all.css" rel="stylesheet" />
+    <link href="/css/all.css" rel="stylesheet" />
 
 
     <!-- Link con hoja de estilos de CSS (lo ubico aca para poder sobre escribir los estilos de bootstrap)-->
-    <link href="../static/css/styles.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
 
 </head>
 
@@ -49,11 +49,11 @@
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">LIBROS</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/agregarlibro.html">Agregar Libro</a></li>
+                <li><a class="dropdown-item" th:href="/libros/agregarlibro">Agregar Libro</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Buscar por Autor</a></li>
+                <li><a class="dropdown-item" href="/buscarporautor">Buscar por Autor</a></li>
                 <li><a class="dropdown-item" href="#">Buscar por Titulo</a></li>
                 <li><a class="dropdown-item" href="#">Buscar por Editorial</a></li>
                 <li><a class="dropdown-item" href="#">Buscar por ISBN</a></li>
