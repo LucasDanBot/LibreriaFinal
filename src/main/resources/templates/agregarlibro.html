@@ -98,47 +98,58 @@
 <body>
 
     <div class="selectorAutor">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">ISBN</span>
-            <input type="text" class="form-control" name="isbn" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Titulo</span>
-            <input type="text" class="form-control" name="titulo" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Año</span>
-            <input type="text" class="form-control" name="anio" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Ejemplares</span>
-            <input type="text" class="form-control" name="ejemplares" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Prestados</span>
-            <input type="text" class="form-control" name="prestados" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Autor</span>
-            <input type="text" class="form-control" name="autor" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Editorial</span>
-            <input type="text" class="form-control" name="editorial" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="form-row text-center">
-            <!-- ------------------------------------------------------------------------- -->
-            <!-- --------------- Aca configuro el boton para guardar libro --------------- -->
-            <!-- ------------------------------------------------------------------------- -->
-            <button action="/guardarLibro" class="btn btn-outline-primary">Guardar</button>
-        </div>
+
+        <p th:if="${error != null}" th:text="${error}"></p>
+
+                <!-- -------------------------------------------------------------------------------- -->
+                <!-- --------------- Aca configuro la accion boton para guardar libro --------------- -->
+                <!-- -------------------------------------------------------------------------------- -->
+        <form th:action="@{/libros/guardarLibro}" method="POST">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">ISBN</span>
+                <input type="number" class="form-control" name="isbn" th:value="${isbn}"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Titulo</span>
+                <input type="text" class="form-control" name="titulo" th:value="${titulo}"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Año</span>
+                <input type="text" class="form-control" name="anio" th:value="${anio}" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Ejemplares</span>
+                <input type="text" class="form-control" name="ejemplares" th:value="${ejemplares}"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Prestados</span>
+                <input type="text" class="form-control" name="prestados" th:value="${prestados}"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Autor</span>
+                <input type="text" class="form-control" name="autor" th:value="${autor}"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
+                <!-- aca poner un select, y enviarle la informacion de autores desde el controler que llama esta vista -->
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Editorial</span>
+                <input type="text" class="form-control" name="editorial" th:value="${editorial}"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <!-- aca poner un select, y enviarle la informacion de autores desde el controler que llama esta vista -->
+            </div>
+            <div class="form-row text-center">
+                <button type="submit" class="btn btn-outline-primary">Guardar</button>
+            </div>
+
+        </form>
+
     </div>
 
 
