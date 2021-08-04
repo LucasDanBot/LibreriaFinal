@@ -96,23 +96,24 @@
 <!-- -------------------------------------------------------------------------- BODY ------------------------------------------------------------------------------------------------------- -->
 
 <body>
+    <!-- ------------------------------------------------------------------------------------ -->
+    <!-- --------------- Aca configuro la accion del boton para guardar Autor --------------- -->
+    <!-- ------------------------------------------------------------------------------------ -->
+    <form th:action="@{/autores/guardarAutor}" method="POST">
 
-    <div class="selectorAutor">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
-            <input type="text" class="form-control" name="nombre" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
+        <div class="selectorAutor">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+                <input type="text" class="form-control" name="nombre" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="form-row text-center">
+                <button type="submit" class="btn btn-outline-primary">Guardar</button>
+            </div>
         </div>
-        
-        <div class="form-row text-center">
-            <!-- ------------------------------------------------------------------------- -->
-            <!-- --------------- Aca configuro el boton para guardar Autor --------------- -->
-            <!-- ------------------------------------------------------------------------- -->
-            <button action="/guardarAutor" class="btn btn-outline-primary">Guardar</button>
-        </div>
-    </div>
 
-
+    </form>
     <!-- ---------------------------------------------------------------------------- FOOTER ------------------------------------------------------------------------------------------------- -->
 
     <hr>
