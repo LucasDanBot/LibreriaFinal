@@ -10,11 +10,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AutorRepositorio extends JpaRepository<Autor, Integer>{
     
-    
-    
     @Query("SELECT c FROM Autor c WHERE c.nombre = :nombre")
     public Autor buscarPorNombre (@Param("nombre") String nombre);
-    
+    /*
+    @Query("SELECT c FROM Autor c WHERE UPPER(c.nombre) = :UPPER(nombre)")
+    public List<Autor> buscarPorNombre (@Param("nombre") String nombre);
+    */
     
     
 }
