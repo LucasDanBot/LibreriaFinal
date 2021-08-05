@@ -99,11 +99,13 @@
     <!-- ------------------------------------------------------------------------------------ -->
     <!-- --------------- Aca configuro la accion del boton para guardar Autor --------------- -->
     <!-- ------------------------------------------------------------------------------------ -->
-    
-    <p th:if="${error != null}" th:text="${error}"></p>
 
-    <form th:action="@{/autores/guardarAutor}" method="POST">
-
+    <form th:action="@{/autores/guardarautor}" method="POST">
+        <!-- Mensaje de Exito o Error -->
+        <div class="contenedorMensajes">
+            <p class="mensajeError" th:if="${error != null}" th:text="${error}"></p>
+            <p class="mensajeExito" th:if="${exito != null}" th:text="${exito}"></p>
+        </div>
         <div class="selectorAutor">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
