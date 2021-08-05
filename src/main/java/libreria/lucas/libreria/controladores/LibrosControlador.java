@@ -1,6 +1,7 @@
 package libreria.lucas.libreria.controladores;
 
 import libreria.lucas.libreria.errores.ErrorServicio;
+import libreria.lucas.libreria.servicios.AutorServicio;
 import libreria.lucas.libreria.servicios.LibroServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +19,14 @@ public class LibrosControlador {
     @Autowired
     private LibroServicio libroservicio; 
     
+    @Autowired
+    private AutorServicio autorservicio;
+    
     @GetMapping("/agregarlibro")
-    public String agregarlibro() {
+    public String agregarlibro(ModelMap modelo) {
+        
+        modelo.put("autores", autorservicio.listarAutores());
+        
         return "agregarlibro.html";
     }
     
@@ -29,7 +36,7 @@ public class LibrosControlador {
     }
     
     @PostMapping("/guardarLibro")
-    public String guardarAutor(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam String autor, @RequestParam String editorial) {
+    public String guardarAutor(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial) {
         /*
         System.out.println("ISBN: " + isbn);
         System.out.println("Titulo: " + titulo);
