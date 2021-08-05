@@ -91,5 +91,16 @@ public class AutorServicio {
         }
 
     }
+    
+    public List<Autor> listarAutores() {
+        
+        List<Autor> autores = autorRepositorio.findAll();
+        for (Autor autore : autores) {
+            System.out.println(autore.getNombre());
+        }
+        return autores;
+        
+    }
+    
 
 }
