@@ -101,9 +101,9 @@
 
         <p th:if="${error != null}" th:text="${error}"></p>
 
-                <!-- -------------------------------------------------------------------------------- -->
-                <!-- --------------- Aca configuro la accion boton para guardar libro --------------- -->
-                <!-- -------------------------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------------------------- -->
+        <!-- --------------- Aca configuro la accion boton para guardar libro --------------- -->
+        <!-- -------------------------------------------------------------------------------- -->
         <form th:action="@{/libros/guardarLibro}" method="POST">
 
             <div class="input-group mb-3">
@@ -131,19 +131,24 @@
                 <input type="text" class="form-control" name="prestados" th:value="${prestados}"
                     aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Autor</span>
-                <input type="text" class="form-control" name="autor" th:value="${autor}"
-                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <select th:name="idautor" id="listaDeOpciones" class="form-control">
+                    <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.id}">
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Editorial</span>
+                <input class="form-control" name="editorial" th:value="${editorial}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <datalist id="editorial">
+                    <option th:each="editorial :${editoriales}" th:value="${editorial.id}" th:label="${editorial.nombre}">
+                </datalist>
 
                 <!-- aca poner un select, y enviarle la informacion de autores desde el controler que llama esta vista -->
             </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Editorial</span>
-                <input type="text" class="form-control" name="editorial" th:value="${editorial}"
-                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                <!-- aca poner un select, y enviarle la informacion de autores desde el controler que llama esta vista -->
-            </div>
+
             <div class="form-row text-center">
                 <button type="submit" class="btn btn-outline-primary">Guardar</button>
             </div>
