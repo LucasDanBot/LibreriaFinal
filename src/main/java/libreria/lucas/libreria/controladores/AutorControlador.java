@@ -29,12 +29,10 @@ public class AutorControlador {
             autorservicio.registrarAutor(nombre);
         } catch (ErrorServicio er) {
             modelo.put("error",er.getMessage());
-            return "agregarlibro.html";
+            return "agregarautor.html";
         }
-        return "agrgarautor.html";
+        modelo.put("exito", "Autor cargado con exito!");
+        return "agregarautor.html";
     }
-    
-    
-    
     
 }
