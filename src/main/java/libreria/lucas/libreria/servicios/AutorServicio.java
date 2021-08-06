@@ -3,6 +3,7 @@ package libreria.lucas.libreria.servicios;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import libreria.lucas.libreria.entidades.Autor;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.repositorios.AutorRepositorio;
@@ -14,6 +15,8 @@ public class AutorServicio {
 
     @Autowired
     private AutorRepositorio autorRepositorio;
+    
+   
 
     public void registrarAutor(String nombre) throws ErrorServicio {
 
@@ -102,5 +105,13 @@ public class AutorServicio {
         
     }
     
+    public Autor buscarPorId (Integer id) {
+        
+        Optional<Autor> autor1 = autorRepositorio.findById(id);
+        
+        Autor autor = autor1.get();
+        
+        return autor;
+    }
 
 }
