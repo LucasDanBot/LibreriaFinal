@@ -1,7 +1,10 @@
 package libreria.lucas.libreria.controladores;
 
+import libreria.lucas.libreria.entidades.Autor;
+import libreria.lucas.libreria.entidades.Editorial;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.servicios.AutorServicio;
+import libreria.lucas.libreria.servicios.EditorialServicio;
 import libreria.lucas.libreria.servicios.LibroServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,10 +25,15 @@ public class LibrosControlador {
     @Autowired
     private AutorServicio autorservicio;
     
+    @Autowired
+    private EditorialServicio editorialservicio;
+    
     @GetMapping("/agregarlibro")
-    public String agregarlibro(ModelMap modelo) {
+    public String agregarlibro(ModelMap modelo, ModelMap modelo2) {
         
         modelo.put("autores", autorservicio.listarAutores());
+        
+        modelo2.put("editoriales", editorialservicio.listarEditoriales());
         
         return "agregarlibro.html";
     }
@@ -37,15 +45,15 @@ public class LibrosControlador {
     
     @PostMapping("/guardarLibro")
     public String guardarAutor(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial) {
-        /*
-        System.out.println("ISBN: " + isbn);
-        System.out.println("Titulo: " + titulo);
-        System.out.println("Año: " + anio);
-        System.out.println("Ejemplares: " + ejemplares);
-        System.out.println("Prestados: " + prestados);
-        System.out.println("Autor: " + autor);
-        System.out.println("Editorial: " + editorial);
-        */
+        
+        //repensar esto a ver si no habria que hacerlo en el servicio en vez de aca
+        
+        Autor autor = autorservicio.buscarPorId(idautor);
+        Editorial editorial = editorialservicio.buscarPorId(ideditorial);
+        
+        
+        
+        
         
         
         /*
