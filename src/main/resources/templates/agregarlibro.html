@@ -141,12 +141,9 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Editorial</span>
-                <input class="form-control" name="editorial" th:value="${editorial}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                <datalist id="editorial">
-                    <option th:each="editorial :${editoriales}" th:value="${editorial.id}" th:label="${editorial.nombre}">
-                </datalist>
-
-                <!-- aca poner un select, y enviarle la informacion de autores desde el controler que llama esta vista -->
+                <select th:name="ideditorial" id="listaDeOpciones" class="form-control">
+                    <option th:each="editorial : ${editoriales}" th:text="${editorial.nombre}" th:value="${editorial.id}">
+                </select>
             </div>
 
             <div class="form-row text-center">
