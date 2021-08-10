@@ -46,28 +46,26 @@ public class LibrosControlador {
     @PostMapping("/guardarLibro")
     public String guardarAutor(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial) {
         
-        //repensar esto a ver si no habria que hacerlo en el servicio en vez de aca
-        
+        //Agarro el ID y busco el autor
         Autor autor = autorservicio.buscarPorId(idautor);
+        
+        //Agarro el Id y busco la editorial
         Editorial editorial = editorialservicio.buscarPorId(ideditorial);
         
-        
-        
-        
-        
-        
-        /*
-        try {
+        //Recibo el ISBN y lo parseo a Long
+         try {
             
             Long isbnLong = Long.parseLong(isbn);
             libroservicio.registrarLibro(isbnLong, titulo, anio, ejemplares, prestados, autor, editorial);
-        
+            
+            modelo.put("exito","Libro cargado exitosamente");
+            
         } catch(ErrorServicio er) {
             modelo.put("error",er.getMessage());
             return "/libros/agregarlibro.html";
         }
-        */
-        return "/index.html";
+        
+        return "agregarlibro.html";
     }
 
 }
