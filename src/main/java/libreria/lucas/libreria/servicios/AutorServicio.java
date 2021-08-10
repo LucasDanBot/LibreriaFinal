@@ -108,9 +108,9 @@ public class AutorServicio {
     public Autor buscarPorId (Integer id) {
         
         Optional<Autor> autor1 = autorRepositorio.findById(id);
-        
+
         Autor autor = autor1.get();
-        
+
         return autor;
     }
 
