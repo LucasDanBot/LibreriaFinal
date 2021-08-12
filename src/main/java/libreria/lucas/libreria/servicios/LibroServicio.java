@@ -1,5 +1,6 @@
 package libreria.lucas.libreria.servicios;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +10,7 @@ import libreria.lucas.libreria.entidades.Libro;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.repositorios.LibroRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -70,7 +72,15 @@ public class LibroServicio {
         
     }
     
-    
+    public List<Libro> listarlibros () {
+        
+        List<Libro> listalibros = libroRepositorio.findAll();
+        
+        // Sort.by("Titulo")
+        
+        return listalibros;
+        
+    }
     
     
     
