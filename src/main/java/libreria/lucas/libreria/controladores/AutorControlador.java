@@ -35,4 +35,12 @@ public class AutorControlador {
         return "agregarautor.html";
     }
     
+    @GetMapping("/listarautores")
+    public String listarautores(){
+        
+        
+        
+        return "listaautores.html";
+    }
+    
 }
