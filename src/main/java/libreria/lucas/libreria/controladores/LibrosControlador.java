@@ -67,5 +67,13 @@ public class LibrosControlador {
         
         return "agregarlibro.html";
     }
+    
+    @GetMapping("/listarlibros")
+    public String listarlibros(ModelMap modelo){
+        
+        modelo.put("libros", libroservicio.listarlibros());
+        
+        return "listalibros.html";
+    }
 
 }
