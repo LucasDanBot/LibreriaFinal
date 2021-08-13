@@ -51,6 +51,7 @@
                 aria-expanded="false">LIBROS</a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" th:href="@{/libros/agregarlibro}">Agregar Libro</a></li>
+                <li><a class="dropdown-item" th:href="@{/libros/listalibrosmodificar}">Modificar Libro</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
@@ -61,7 +62,7 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Listar Todos</a></li>
+                <li><a class="dropdown-item" th:href="@{/libros/listarlibros}">Listar Todos</a></li>
             </ul>
         </li>
         <!-- Seccion Autores -->
