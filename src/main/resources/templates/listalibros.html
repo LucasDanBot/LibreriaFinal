@@ -51,6 +51,7 @@
                 aria-expanded="false">LIBROS</a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" th:href="@{/libros/agregarlibro}">Agregar Libro</a></li>
+                <li><a class="dropdown-item" th:href="@{/libros/listalibrosmodificar}">Modificar Libro</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
@@ -61,7 +62,7 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Listar Todos</a></li>
+                <li><a class="dropdown-item" th:href="@{/libros/listarlibros}">Listar Todos</a></li>
             </ul>
         </li>
         <!-- Seccion Autores -->
@@ -118,19 +119,22 @@
         <p th:if="${exito != null}" th:text="${exito}"></p>
 
         <table class="table table-sm table-hover table-striped">
-            <thead>
+            <thead class="tablas">
                 <tr>
                     <th scope="col">ISBN</th>
                     <th scope="col">TITULO</th>
+                    <th scope="col">AUTOR</th>
+                    <th scope="col">EDITORIAL</th>
                     <th scope="col">EJEMPLARES</th>
                     <th scope="col">PRESTADOS</th>
                 </tr>
             </thead>
-            <tbody>
-
-                <tr th:each="libro : ${libros}" th:text="${editorial.nombre}">
+            <tbody class="tablas">
+                <tr th:each="libro : ${libros}">
                     <th scope="row" th:text="${libro.isbn}"></th>
                     <td th:text="${libro.titulo}"></td>
+                    <th th:text="${libro.autor.nombre}"></th>
+                    <td th:text="${libro.editorial.nombre}"></td>
                     <td th:text="${libro.ejemplares}"></td>
                     <td th:text="${libro.prestados}"></td>
                 </tr>
