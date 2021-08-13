@@ -86,9 +86,11 @@ public class LibrosControlador {
     }
     
     @GetMapping("/modificarlibro/{isbn}")
-    public String modificarlibro(@PathVariable Long isbn, ModelMap modelo){
+    public String modificarlibro(@PathVariable Long isbn, ModelMap modelo, ModelMap modelo1){
         
         modelo.put("libro", libroservicio.buscarPorId(isbn));
+        
+        
         
         return "modificarlibro.html";
     }
