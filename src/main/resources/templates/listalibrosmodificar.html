@@ -115,9 +115,6 @@
 
     <div class="muestralistas">
 
-        <p th:if="${error != null}" th:text="${error}"></p>
-        <p th:if="${exito != null}" th:text="${exito}"></p>
-
         <table class="table table-sm table-hover table-striped">
             <thead class="tablas">
                 <tr>
@@ -127,7 +124,7 @@
                     <th scope="col">EDITORIAL</th>
                     <th scope="col">EJEMPLARES</th>
                     <th scope="col">PRESTADOS</th>
-                    <th scope="col">SELECCIONAR</th>
+                    <th scope="col">EDITAR</th>
                 </tr>
             </thead>
             <tbody class="tablas">
@@ -139,10 +136,10 @@
                         <td th:text="${libro.ejemplares}"></td>
                         <td th:text="${libro.prestados}"></td>
                         <td>
-                            <i class="fa fa-pencil-alt"></i>
                             <!-- Genera un path variable que va a adoptar el valir del ISBN, los __ son para evitar un error -->
-                            <a type="submit" class="btn btn-outline-primary" th:href="@{/libros/modificarlibro/__${libro.isbn}__}">Editar</a>
-                            </i>
+                            <a class="btn btn-outline-primary" th:href="@{/libros/modificarlibro/__${libro.isbn}__}">
+                                <i class="fa fa-pencil-alt"></i>
+                            </a>
                         </td>
                 </tr>
             </tbody>
