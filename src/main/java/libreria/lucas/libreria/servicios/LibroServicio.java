@@ -82,6 +82,15 @@ public class LibroServicio {
         
     }
     
+    public Libro buscarPorId (Long id) {
+        
+        Optional<Libro> libro1 = libroRepositorio.findById(id);
+
+        Libro libro = libro1.get();
+
+        return libro;
+    }
+    
     
     
     
