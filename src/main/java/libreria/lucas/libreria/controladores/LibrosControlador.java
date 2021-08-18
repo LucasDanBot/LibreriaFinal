@@ -54,7 +54,7 @@ public class LibrosControlador {
         Editorial editorial = editorialservicio.buscarPorId(ideditorial);
         
         //Recibo el ISBN y lo parseo a Long
-         try {
+        try {
             
             Long isbnLong = Long.parseLong(isbn);
             libroservicio.registrarLibro(isbnLong, titulo, anio, ejemplares, prestados, autor, editorial);
@@ -63,7 +63,7 @@ public class LibrosControlador {
             
         } catch(ErrorServicio er) {
             modelo.put("error",er.getMessage());
-            return "/libros/agregarlibro.html";
+            return "agregarlibro.html";
         }
         
         return "agregarlibro.html";
@@ -86,15 +86,40 @@ public class LibrosControlador {
     }
     
     @GetMapping("/modificarlibro/{isbn}")
-    public String modificarlibro(@PathVariable Long isbn, ModelMap modelo, ModelMap modelo1){
+    public String modificarlibro(@PathVariable Long isbn, ModelMap modelo, ModelMap modelo2){
         
         modelo.put("libro", libroservicio.buscarPorId(isbn));
         
+        modelo.put("autores", autorservicio.listarAutores());
         
+        modelo2.put("editoriales", editorialservicio.listarEditoriales());
         
         return "modificarlibro.html";
     }
     
-    
+    @PostMapping("/guardarmodificado")
+    public String guardarmodificado(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial){
+        
+        //Agarro el ID y busco el autor
+        Autor autor = autorservicio.buscarPorId(idautor);
+        
+        //Agarro el Id y busco la editorial
+        Editorial editorial = editorialservicio.buscarPorId(ideditorial);
+        
+        //Recibo el ISBN y lo parseo a Long
+        try {
+            
+            Long isbnLong = Long.parseLong(isbn);
+            libroservicio.modificarLibro(isbnLong, titulo, anio, ejemplares, prestados, autor, editorial);
+            
+            modelo.put("exito","Libro modificado exitosamente");
+            
+        } catch(ErrorServicio er) {
+            modelo.put("error",er.getMessage());
+            return "mensajeguardado.html";
+        }
+        
+        return "mensajeguardado.html";
+    }
 
 }
