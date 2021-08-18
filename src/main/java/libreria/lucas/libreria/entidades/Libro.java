@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -30,6 +31,9 @@ public class Libro {
     
     @ManyToOne
     private Editorial editorial;
+    
+    @OneToOne
+    private Foto foto;
 
     
     // CONSTRUCTORES -----------------------------------------------------------
@@ -37,15 +41,17 @@ public class Libro {
     public Libro() {
     }
 
-    
-    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer prestados, Autor autor, Editorial editorial) {
+    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer prestados, Date alta, Date baja, Autor autor, Editorial editorial, Foto foto) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;
         this.ejemplares = ejemplares;
         this.prestados = prestados;
+        this.alta = alta;
+        this.baja = baja;
         this.autor = autor;
         this.editorial = editorial;
+        this.foto = foto;
     }
     
     // GETTER Y SETTERS --------------------------------------------------------
@@ -121,9 +127,15 @@ public class Libro {
     public void setEditorial(Editorial editorial) {
         this.editorial = editorial;
     }
-    
-    
-    
-    
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+ 
+
     
 }
