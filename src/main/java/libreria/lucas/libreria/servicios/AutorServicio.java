@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import libreria.lucas.libreria.entidades.Autor;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.repositorios.AutorRepositorio;
@@ -18,6 +19,7 @@ public class AutorServicio {
     
    
 
+    @Transactional
     public void registrarAutor(String nombre) throws ErrorServicio {
 
         validar(nombre);
@@ -35,6 +37,7 @@ public class AutorServicio {
         }
     }
 
+    @Transactional
     public void modificarAutor(String nombre, String nombreNuevo) throws ErrorServicio {
 
         validar(nombre);
@@ -55,6 +58,7 @@ public class AutorServicio {
 
     }
 
+    @Transactional
     private void BajaAutor(String nombre) throws ErrorServicio {
 
         validar(nombre);
@@ -71,6 +75,7 @@ public class AutorServicio {
 
     }
 
+    @Transactional
     private void AltaAutor(String nombre) throws ErrorServicio {
 
         validar(nombre);
@@ -87,6 +92,7 @@ public class AutorServicio {
 
     }
 
+    
     private void validar(String nombre) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
@@ -94,6 +100,7 @@ public class AutorServicio {
         }
 
     }
+    
     
     public List<Autor> listarAutores() {
         
@@ -104,6 +111,7 @@ public class AutorServicio {
         return autores;
         
     }
+    
     
     public Autor buscarPorId (Integer id) {
         
