@@ -3,6 +3,7 @@ package libreria.lucas.libreria.servicios;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import libreria.lucas.libreria.entidades.Editorial;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.repositorios.EditorialRepositorio;
@@ -16,6 +17,7 @@ public class EditorialServicio {
     @Autowired
     private EditorialRepositorio editorialrespositorio;
     
+    @Transactional
     public void registrarEditorial (String nombre) throws ErrorServicio{
         
         validar(nombre);
@@ -34,6 +36,7 @@ public class EditorialServicio {
     }
     
 
+    @Transactional
     public void modificarEditorial(String nombre, String nombreNuevo) throws ErrorServicio {
 
         validar(nombre);
@@ -54,6 +57,7 @@ public class EditorialServicio {
 
     }
 
+    @Transactional
     private void BajaEditorial(String nombre) throws ErrorServicio {
 
         validar(nombre);
@@ -70,6 +74,7 @@ public class EditorialServicio {
 
     }
 
+    @Transactional
     private void AltaEditorial(String nombre) throws ErrorServicio {
 
         validar(nombre);
@@ -86,6 +91,7 @@ public class EditorialServicio {
 
     }
 
+    
     private void validar(String nombre) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
@@ -93,6 +99,7 @@ public class EditorialServicio {
         }
 
     }
+    
     
     public List<Editorial> listarEditoriales() {
         
@@ -103,6 +110,7 @@ public class EditorialServicio {
         return editoriales;
         
     }
+    
     
     public Editorial buscarPorId (Integer id) {
         
