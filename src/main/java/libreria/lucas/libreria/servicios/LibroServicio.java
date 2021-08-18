@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import libreria.lucas.libreria.entidades.Autor;
 import libreria.lucas.libreria.entidades.Editorial;
 import libreria.lucas.libreria.entidades.Libro;
@@ -19,6 +20,7 @@ public class LibroServicio {
     @Autowired
     private LibroRepositorio libroRepositorio;
 
+    @Transactional
     public void registrarLibro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer prestados, Autor autor, Editorial editorial) throws ErrorServicio {
 
         if (isbn == null) {
@@ -89,6 +91,7 @@ public class LibroServicio {
         return libro;
     }
 
+    @Transactional
     public void modificarLibro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer prestados, Autor autor, Editorial editorial) throws ErrorServicio {
 
         if (isbn == null) {
