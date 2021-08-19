@@ -58,14 +58,16 @@ header.masthead .masthead-heading {
 --------------------------------------------------------------------------- BODY ---------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.selectorAutor{
+.tablaAgregar{
   width: 40%;
   margin: auto;
   padding: 1rem;
 }
 
 .buscador{
-  display: inline-flex;
+  width: 40%;
+  margin: auto;
+  padding: 1rem;
 }
 
 .input-group-text{
@@ -85,7 +87,7 @@ header.masthead .masthead-heading {
 }
 
 .muestralistas{
-  width: 90%;
+  width: 95%;
   margin: auto;
   padding: 5rem;
 }
@@ -93,6 +95,12 @@ header.masthead .masthead-heading {
 .tablas{
   text-align: center;
 }
+
+.titulotabla{
+  margin-top: 1rem;
+  margin: auto;
+}
+
 
 
 
