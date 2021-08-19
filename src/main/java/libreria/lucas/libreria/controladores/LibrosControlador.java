@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/libros")
@@ -45,7 +46,7 @@ public class LibrosControlador {
     }
     
     @PostMapping("/guardarLibro")
-    public String guardarAutor(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial) {
+    public String guardarAutor(ModelMap modelo, MultipartFile fotoportada, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial) {
         
         //Agarro el ID y busco el autor
         Autor autor = autorservicio.buscarPorId(idautor);
@@ -57,7 +58,7 @@ public class LibrosControlador {
         try {
             
             Long isbnLong = Long.parseLong(isbn);
-            libroservicio.registrarLibro(isbnLong, titulo, anio, ejemplares, prestados, autor, editorial);
+            libroservicio.registrarLibro(fotoportada, isbnLong, titulo, anio, ejemplares, prestados, autor, editorial);
             
             modelo.put("exito","Libro cargado exitosamente");
             
@@ -98,7 +99,7 @@ public class LibrosControlador {
     }
     
     @PostMapping("/guardarmodificado")
-    public String guardarmodificado(ModelMap modelo, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial){
+    public String guardarmodificado(ModelMap modelo, MultipartFile fotoportada, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial){
         
         //Agarro el ID y busco el autor
         Autor autor = autorservicio.buscarPorId(idautor);
@@ -108,12 +109,9 @@ public class LibrosControlador {
         
         //Recibo el ISBN y lo parseo a Long
         try {
-            
             Long isbnLong = Long.parseLong(isbn);
-            libroservicio.modificarLibro(isbnLong, titulo, anio, ejemplares, prestados, autor, editorial);
-            
+            libroservicio.modificarLibro(fotoportada, isbnLong, titulo, anio, ejemplares, prestados, autor, editorial);
             modelo.put("exito","Libro modificado exitosamente");
-            
         } catch(ErrorServicio er) {
             modelo.put("error",er.getMessage());
             return "mensajeguardado.html";
