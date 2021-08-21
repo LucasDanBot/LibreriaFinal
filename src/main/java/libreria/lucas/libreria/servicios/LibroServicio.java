@@ -167,4 +167,15 @@ public class LibroServicio {
         }
     }
 
+    
+    public List<Libro> buscarporautor(String nombre) {
+
+        List<Libro> listalibros = libroRepositorio.buscarPorNombre(nombre);
+        
+        return listalibros;
+
+    }
+    
+    
+    
 }
