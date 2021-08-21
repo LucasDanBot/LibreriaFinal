@@ -82,34 +82,24 @@
 <!-- -------------------------------------------------------------------------- BODY ------------------------------------------------------------------------------------------------------- -->
 
 <body>
-
-    <div class="buscador">
-        <div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Seleccionar autor</span>
-                <select th:name="idautor" id="listaDeOpciones" class="form-control">
-                    <option th:value=null>-- Seleccione un Autor --</option>
-                    <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.id}">
-                </select>
+    <form th:action="@{/libros/buscarporautorcartas}" method="GET">
+        <div class="buscador">
+            <div>
+                <div class="input-group mb-3">
+                    <select th:name="nombre" id="listaDeOpciones" class="form-control">
+                        <option th:value=null>-- Seleccione un Autor --</option>
+                        <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.nombre}">
+                    </select>
+                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div>
-        <button action="/buscarPorAutor" class="btn btn-outline-primary">Buscar</button>
-    </div>
-
-
-
-
-
+    </form>
 
     <!-- ---------------------------------------------------------------------------- FOOTER ------------------------------------------------------------------------------------------------- -->
 
     <div>
-
         <div th:insert="fragments/footer"></div>
-
     </div>
 
 </body>
