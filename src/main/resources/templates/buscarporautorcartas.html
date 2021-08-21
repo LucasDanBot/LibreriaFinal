@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- Link para el uso de Thimeleaf! (No olvidarse de colocarlo) -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+
+    <div th:insert="fragments/head"></div>
+
+</head>
+
+
+<!-- ------------------------------------------------------------------------ NAVBAR ------------------------------------------------------------------------------------------------------- -->
+<nav>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/}">INICIO</a>
+        </li>
+        <!-- Seccion Libros -->
+        <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">LIBROS</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" th:href="@{/libros/agregarlibro}">Agregar Libro</a></li>
+                <li><a class="dropdown-item" th:href="@{/libros/listalibrosmodificar}">Modificar Libro</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" th:href="@{/libros/buscarporautor}">Buscar por Autor</a></li>
+                <li><a class="dropdown-item" href="#">Buscar por Titulo</a></li>
+                <li><a class="dropdown-item" href="#">Buscar por Editorial</a></li>
+                <li><a class="dropdown-item" href="#">Buscar por ISBN</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" th:href="@{/libros/listarlibros}">Listar Todos</a></li>
+            </ul>
+        </li>
+        <!-- Seccion Autores -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">AUTORES</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" th:href="@{/autores/agregarautor}">Agregar Autor</a></li>
+                <li><a class="dropdown-item" href="#">Buscar Autor</a></li>
+                <li><a class="dropdown-item" href="#">Modificar Autor</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Listar Autores</a></li>
+            </ul>
+        </li>
+        <!-- Seccion Editoriales -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">EDITORIALES</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" th:href="@{/editoriales/agregareditorial}">Agregar Editorial</a></li>
+                <li><a class="dropdown-item" href="#">Buscar Editorial</a></li>
+                <li><a class="dropdown-item" href="#">Modificar Editorial</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Listar Editoriales</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">SUCURSALES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">CONTACTO</a>
+        </li>
+    </ul>
+
+</nav>
+
+<!-- ------------------------------------------------------------------------ HEADER ------------------------------------------------------------------------------------------------------- -->
+<header>
+
+</header>
+
+<!-- -------------------------------------------------------------------------- BODY ------------------------------------------------------------------------------------------------------- -->
+
+<body>
+
+    <div class="buscador">
+        <div>
+            <div class="input-group mb-3">
+                <select th:name="idautor" id="listaDeOpciones" class="form-control">
+                    <option th:value=null>-- Seleccione un Autor --</option>
+                    <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.id}">
+                </select>
+                <button action="/buscarPorAutor" class="btn btn-outline-primary">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="album py-5 bg-light">
+
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                <div class="col" th:each="libro : ${libros}">
+                    <!-- el h-100 es el que hace que todas las cartas tengan igual altura -->
+                    <div class="card h-100 border-secondary mb-3">
+                        <div class="fotocarta">
+                            <img class="image-card" th:if="${libro.foto != null}" th:src="${'/foto/fotoportada/' + libro.isbn}" style="width: 90%;">
+                            <!-- <img th:if="${libro.foto == null}" class="card-img-top" th:src="../static/assets/img/sinportada.jpg" style="width: 90%;"> -->
+                        </div>
+                        <div class="card-body">
+
+                            <h5 class="card-title" th:text="${libro.titulo}"></h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" th:text="${libro.autor.nombre}"></li>
+                                <li class="list-group-item" th:text="${libro.editorial.nombre}"></li>
+                                <li class="list-group-item" th:text="${libro.anio}"></li>
+                                <li class="list-group-item" th:text="${libro.isbn}"></li>
+                                <li class="list-group-item" th:text="${libro.ejemplares}"></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- ---------------------------------------------------------------------------- FOOTER ------------------------------------------------------------------------------------------------- -->
+
+    <div>
+
+        <div th:insert="fragments/footer"></div>
+
+    </div>
+
+</body>
+
+</html>
