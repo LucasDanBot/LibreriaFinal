@@ -1,7 +1,9 @@
 package libreria.lucas.libreria.controladores;
 
+import java.util.List;
 import libreria.lucas.libreria.entidades.Autor;
 import libreria.lucas.libreria.entidades.Editorial;
+import libreria.lucas.libreria.entidades.Libro;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.servicios.AutorServicio;
 import libreria.lucas.libreria.servicios.EditorialServicio;
@@ -41,9 +43,32 @@ public class LibrosControlador {
     }
     
     @GetMapping("/buscarporautor")
-    public String buscarporautor() {
+    public String buscarporautor(ModelMap modelo) {
+        
+        modelo.put("autores", autorservicio.listarAutores());
+        
         return "buscarporautor.html";
     }
+    
+    @GetMapping("/buscarporautorcartas")
+    public String buscarporautorcartas (@RequestParam String nombre, ModelMap modelo, ModelMap modelo1){
+        
+        modelo1.put("autores", autorservicio.listarAutores());
+        
+        List<Libro> listalibros = libroservicio.buscarporautor(nombre);
+        
+        /* for (Libro listalibro : listalibros) {
+            System.out.println(listalibro.getTitulo());
+        } */
+        
+        modelo.put("libros", libroservicio.buscarporautor(nombre));
+        
+        return "buscarporautorcartas.html";
+    }
+    
+    
+    
+    
     
     @PostMapping("/guardarLibro")
     public String guardarAutor(ModelMap modelo, MultipartFile fotoportada, @RequestParam String isbn, @RequestParam String titulo, @RequestParam Integer anio, @RequestParam Integer ejemplares, @RequestParam Integer prestados, @RequestParam Integer idautor, @RequestParam Integer ideditorial) {
