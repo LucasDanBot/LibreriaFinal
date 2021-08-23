@@ -82,18 +82,19 @@
 <!-- -------------------------------------------------------------------------- BODY ------------------------------------------------------------------------------------------------------- -->
 
 <body>
-
-    <div class="buscador">
-        <div>
-            <div class="input-group mb-3">
-                <select th:name="idautor" id="listaDeOpciones" class="form-control">
-                    <option th:value=null>-- Seleccione un Autor --</option>
-                    <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.id}">
-                </select>
-                <button action="/buscarPorAutor" class="btn btn-outline-primary">Buscar</button>
+    <form th:action="@{/libros/buscarporautorcartas}" method="GET">
+        <div class="buscador">
+            <div>
+                <div class="input-group mb-3">
+                    <select th:name="nombre" id="listaDeOpciones" class="form-control">
+                        <option th:value=null>-- Seleccione un Autor --</option>
+                        <option th:each="autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.nombre}">
+                    </select>
+                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
     <div class="album py-5 bg-light">
 
@@ -106,7 +107,7 @@
                     <div class="card h-100 border-secondary mb-3">
                         <div class="fotocarta">
                             <img class="image-card" th:if="${libro.foto != null}" th:src="${'/foto/fotoportada/' + libro.isbn}" style="width: 90%;">
-                            <!-- <img th:if="${libro.foto == null}" class="card-img-top" th:src="../static/assets/img/sinportada.jpg" style="width: 90%;"> -->
+                            <!-- <img th:if="${libro.foto == null}" class="image-card" th:src="../static/assets/img/sinportada.jpg" style="width: 90%;"> -->
                         </div>
                         <div class="card-body">
 
