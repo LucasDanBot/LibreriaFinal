@@ -7,7 +7,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import libreria.lucas.libreria.entidades.Autor;
 import libreria.lucas.libreria.entidades.Editorial;
-import libreria.lucas.libreria.entidades.Foto;
+import libreria.lucas.libreria.entidades.FotoPortada;
 import libreria.lucas.libreria.entidades.Libro;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.repositorios.LibroRepositorio;
@@ -62,7 +62,7 @@ public class LibroServicio {
             throw new ErrorServicio("Debe seleccionar un autor");
         }
 
-        Foto foto = new Foto();
+        FotoPortada foto = new FotoPortada();
         if (fotoportada != null) {
             foto = fotoportadaservicio.guardar(fotoportada);
         }
@@ -132,7 +132,7 @@ public class LibroServicio {
                 throw new ErrorServicio("Debe seleccionar un autor");
             }
 
-            Foto foto = new Foto();
+            FotoPortada foto = new FotoPortada();
             /* si la foto portada es nula (el usuario no carga una foto nueva), la foto a guardar sera la foto que ya tenga guardada en el caso 
             de que exista, y si no tiene guardada ninguna seguira sin tenerla. Caso contrario, si el usuario carga una foto nueva, esta se guardara
             piasando la existente si existiera */
