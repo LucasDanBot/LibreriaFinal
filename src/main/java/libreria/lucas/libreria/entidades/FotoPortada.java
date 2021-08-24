@@ -8,12 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
-
 @Entity
 public class FotoPortada {
     
+    // PARAMETROS --------------------------------------------------------------
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto genera este valor 1,2,3.... n
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
     private String nombre;
@@ -25,8 +26,7 @@ public class FotoPortada {
     private byte[] contenido;
 
     
-    
-    // CONSTRUCTORES -----------------------------------------------------------    
+    // CONSTRUCTORES -----------------------------------------------------------
 
     public FotoPortada() {
     }
@@ -39,7 +39,8 @@ public class FotoPortada {
     }
     
     
-    // GETTER Y SETTERS --------------------------------------------------------    
+    // GETTER Y SETTERS --------------------------------------------------------
+    
     public Integer getId() {
         return id;
     }
@@ -71,5 +72,7 @@ public class FotoPortada {
     public void setContenido(byte[] contenido) {
         this.contenido = contenido;
     }
+    
+    
     
 }
