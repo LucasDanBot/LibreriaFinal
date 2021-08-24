@@ -33,7 +33,7 @@ public class Libro {
     private Editorial editorial;
     
     @OneToOne
-    private Foto foto;
+    private FotoPortada foto;
 
     
     // CONSTRUCTORES -----------------------------------------------------------
@@ -41,7 +41,7 @@ public class Libro {
     public Libro() {
     }
 
-    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer prestados, Date alta, Date baja, Autor autor, Editorial editorial, Foto foto) {
+    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer prestados, Date alta, Date baja, Autor autor, Editorial editorial, FotoPortada foto) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;
@@ -53,6 +53,8 @@ public class Libro {
         this.editorial = editorial;
         this.foto = foto;
     }
+
+    
     
     // GETTER Y SETTERS --------------------------------------------------------
 
@@ -128,11 +130,11 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    public Foto getFoto() {
+    public FotoPortada getFoto() {
         return foto;
     }
 
-    public void setFoto(Foto foto) {
+    public void setFoto(FotoPortada foto) {
         this.foto = foto;
     }
  
