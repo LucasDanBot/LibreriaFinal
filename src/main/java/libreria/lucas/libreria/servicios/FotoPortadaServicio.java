@@ -1,7 +1,7 @@
 package libreria.lucas.libreria.servicios;
 
 import javax.transaction.Transactional;
-import libreria.lucas.libreria.entidades.Foto;
+import libreria.lucas.libreria.entidades.FotoPortada;
 import libreria.lucas.libreria.errores.ErrorServicio;
 import libreria.lucas.libreria.repositorios.FotoPortadaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ public class FotoPortadaServicio {
     private FotoPortadaRepositorio fotoportadarepositorio;
 
     @Transactional
-    public Foto guardar(MultipartFile archivo) throws ErrorServicio {
+    public FotoPortada guardar(MultipartFile archivo) throws ErrorServicio {
 
         if (archivo != null) {
 
             try {
-                Foto foto = new Foto();
+                FotoPortada foto = new FotoPortada();
                 foto.setMime(archivo.getContentType());
                 foto.setNombre(archivo.getName());
                 foto.setContenido(archivo.getBytes());
@@ -37,12 +37,12 @@ public class FotoPortadaServicio {
     }
     
     @Transactional
-    public Foto modificarfoto(MultipartFile archivo, Integer id) throws ErrorServicio {
+    public FotoPortada modificarfoto(MultipartFile archivo, Integer id) throws ErrorServicio {
         
         if (archivo != null) {
 
             try {
-                Foto foto = new Foto();
+                FotoPortada foto = new FotoPortada();
                 
                 foto.setId(id);
                 
